@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Production output
+dist/
+
+# TypeScript and Vite generated files
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Logs and editor files
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# Local verification screenshots
+*-check.png
+*-final.png
+google-map-dark.png

@@ -1,0 +1,7 @@
+import { motion } from 'framer-motion'
+import { ArrowUpRight,Check } from 'lucide-react'
+import type { ReactNode } from 'react'
+export const fade={initial:{opacity:0,y:28},whileInView:{opacity:1,y:0},viewport:{once:true,amount:.15},transition:{duration:.65,ease:[.22,1,.36,1] as const}}
+export function Heading({eye,title,light=false}:{eye:string;title:string;light?:boolean}){return <motion.div {...fade} className="max-w-4xl"><p className={`eyebrow mb-5 ${light?'!text-sand':''}`}>{eye}</p><h2 className={`section-title ${light?'text-white':'text-ink'}`}>{title}</h2></motion.div>}
+export function ButtonLink({href,children,light=false}:{href:string;children:ReactNode;light?:boolean}){return <a href={href} className={`group inline-flex min-h-12 items-center justify-center gap-3 px-6 py-3 text-sm font-bold transition ${light?'bg-sand text-ink hover:bg-white':'bg-forest text-white hover:bg-olive'}`}>{children}<ArrowUpRight size={17} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"/></a>}
+export function Feature({children,index}:{children:ReactNode;index?:string}){return <motion.li {...fade} className="flex min-h-20 items-center gap-4 border-t border-current/15 py-4 text-sm font-semibold leading-snug"><span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-olive/50 text-olive">{index??<Check size={14}/>}</span>{children}</motion.li>}

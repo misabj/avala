@@ -1,0 +1,10 @@
+import {ExternalLink,MapPin} from 'lucide-react'
+import type {ReactNode} from 'react'
+import {useLanguage} from '../context/LanguageContext'
+
+export const AVALA_MAP_URL='https://www.google.com/maps/search/?api=1&query=13%20Oktobra%2054%2C%2011233%20Ralja%2C%20Serbia'
+const AVALA_MAP_EMBED='https://www.google.com/maps?q=13%20Oktobra%2054%2C%2011233%20Ralja%2C%20Serbia&z=13&output=embed'
+
+export function MapLink({className='',children}:{className?:string;children:ReactNode}){return <a href={AVALA_MAP_URL} target="_blank" rel="noreferrer" className={className}>{children}</a>}
+
+export default function GoogleMap({dark=false}:{dark?:boolean}){const{copy}=useLanguage();return <section className={`relative min-h-[420px] overflow-hidden ${dark?'bg-ink text-white':'bg-paper text-ink'}`} aria-label={copy.contact.location}><iframe title={`Google Maps — ${copy.contact.location}`} src={AVALA_MAP_EMBED} className={`absolute inset-0 h-full w-full border-0 ${dark?'opacity-80 [filter:invert(92%)_hue-rotate(180deg)_brightness(72%)_contrast(115%)_saturate(65%)]':''}`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen/><div className={`pointer-events-none absolute inset-0 ${dark?'bg-gradient-to-r from-ink/85 via-ink/15 to-transparent':'bg-gradient-to-r from-paper/75 via-transparent to-transparent'}`}/><div className="pointer-events-none relative flex min-h-[420px] items-end p-6 md:p-10"><div className={`pointer-events-auto max-w-md p-6 shadow-2xl backdrop-blur-md ${dark?'border border-white/10 bg-ink/90':'border border-black/10 bg-white/95'}`}><MapPin className={dark?'text-sand':'text-olive'}/><strong className="mt-4 block text-xl">{copy.contact.location}</strong><p className={`mt-2 text-sm leading-6 ${dark?'text-white/60':'text-black/55'}`}>{copy.contact.map}</p><MapLink className={`mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.13em] ${dark?'text-sand hover:text-white':'text-olive hover:text-ink'}`}>{copy.contact.openMap}<ExternalLink size={14}/></MapLink></div></div></section>}

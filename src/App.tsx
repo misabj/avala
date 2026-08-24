@@ -1,0 +1,2 @@
+import {LanguageProvider} from './context/LanguageContext';import Header from './components/Header';import Hero from './components/Hero';import {About,Brand,Detection,Dual,FinalCta,Gallery,Gsp,Process,Services} from './components/Sections';import Contact from './components/Contact';import Footer from './components/Footer'
+export default function App(){return <LanguageProvider><Header/><main><Hero/><Brand/><About/><Services/><Detection/><Gsp/><Dual/><Process/><Gallery/><FinalCta/><Contact/></main><Footer/></LanguageProvider>}
