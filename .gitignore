@@ -23,4 +23,5 @@ vite.config.d.ts
 # Local verification screenshots
 *-check.png
 *-final.png
+*-arrow.png
 google-map-dark.png
