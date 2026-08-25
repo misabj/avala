@@ -1,2 +1,49 @@
-import {useEffect,useState} from 'react';import {Menu,X} from 'lucide-react';import {AnimatePresence,motion} from 'framer-motion';import {useLanguage} from '../context/LanguageContext';import {MapLink} from './GoogleMap'
-export default function Header(){const{copy,lang,setLang}=useLanguage();const[open,setOpen]=useState(false);const[scrolled,setScrolled]=useState(false);useEffect(()=>{const f=()=>setScrolled(scrollY>30);f();addEventListener('scroll',f,{passive:true});return()=>removeEventListener('scroll',f)},[]);useEffect(()=>{document.body.style.overflow=open?'hidden':'';const close=(event:KeyboardEvent)=>{if(event.key==='Escape')setOpen(false)};const resize=()=>{if(innerWidth>=1280)setOpen(false)};addEventListener('keydown',close);addEventListener('resize',resize);return()=>{document.body.style.overflow='';removeEventListener('keydown',close);removeEventListener('resize',resize)}},[open]);const links=[['#home',copy.nav.home],['#about',copy.nav.about],['#services',copy.nav.services],['#detection',copy.nav.detection],['#dual-purpose',copy.nav.dual],['#contact',copy.nav.contact]];return <header className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled||open?'bg-ink/95 shadow-lg backdrop-blur-xl':'bg-gradient-to-b from-black/70 to-transparent'}`}><div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 lg:px-10"><a href="#home" className="leading-none text-white" aria-label="AVALA Police Dogs home"><span className="block text-xl font-extrabold tracking-[.18em]">AVALA</span><span className="block text-[.58rem] font-bold tracking-[.35em] text-sand">POLICE DOGS</span></a><nav className="hidden items-center gap-6 xl:flex" aria-label="Main navigation">{links.map(([h,l])=><a key={h} href={h} className="text-[.72rem] font-semibold text-white/75 transition hover:text-white">{l}</a>)}</nav><div className="flex items-center gap-4"><div className="flex items-center text-xs font-bold text-white"><button className={`p-2 ${lang==='en'?'text-sand':'text-white/50'}`} onClick={()=>setLang('en')} aria-pressed={lang==='en'}>EN</button><span className="text-white/25">|</span><button className={`p-2 ${lang==='sr'?'text-sand':'text-white/50'}`} onClick={()=>setLang('sr')} aria-pressed={lang==='sr'}>SR</button></div><a href="#contact" className="hidden border border-sand/60 px-5 py-2.5 text-xs font-bold text-white transition hover:bg-sand hover:text-ink md:block">{copy.nav.contact}</a><button className="relative z-10 p-2 text-white xl:hidden" onClick={()=>setOpen(v=>!v)} aria-label={open?copy.nav.close:copy.nav.open} aria-expanded={open} aria-controls="mobile-navigation">{open?<X/>:<Menu/>}</button></div></div><AnimatePresence>{open&&<motion.nav id="mobile-navigation" initial={{opacity:0,y:-16}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-16}} transition={{duration:.25,ease:[.22,1,.36,1]}} className="absolute left-0 top-full z-50 flex h-[calc(100dvh-5rem)] w-full flex-col overflow-y-auto bg-ink px-6 py-8 fine-grid md:px-10 md:py-10 xl:hidden" aria-label="Mobile navigation">{links.map(([h,l],i)=><motion.a initial={{opacity:0,x:-16}} animate={{opacity:1,x:0}} transition={{delay:i*.04}} key={h} href={h} onClick={()=>setOpen(false)} className="border-b border-white/10 py-4 text-2xl font-semibold text-white transition hover:border-sand/50 hover:text-sand md:py-5 md:text-3xl">{l}</motion.a>)}<MapLink className="mt-auto pt-8 text-xs font-bold uppercase tracking-[.2em] text-sand transition hover:text-white">Belgrade, Serbia / Europe</MapLink></motion.nav>}</AnimatePresence></header>}
+import {useEffect,useState} from 'react'
+import {Menu,X} from 'lucide-react'
+import {AnimatePresence,motion} from 'framer-motion'
+import {useLanguage} from '../context/LanguageContext'
+import {MapLink} from './GoogleMap'
+import Logo from './Logo'
+
+export default function Header(){
+  const {copy}=useLanguage()
+  const [open,setOpen]=useState(false)
+  const [scrolled,setScrolled]=useState(false)
+
+  useEffect(()=>{
+    const onScroll=()=>setScrolled(scrollY>30)
+    onScroll()
+    addEventListener('scroll',onScroll,{passive:true})
+    return()=>removeEventListener('scroll',onScroll)
+  },[])
+
+  useEffect(()=>{
+    document.body.style.overflow=open?'hidden':''
+    const close=(event:KeyboardEvent)=>{if(event.key==='Escape')setOpen(false)}
+    const resize=()=>{if(innerWidth>=1280)setOpen(false)}
+    addEventListener('keydown',close)
+    addEventListener('resize',resize)
+    return()=>{
+      document.body.style.overflow=''
+      removeEventListener('keydown',close)
+      removeEventListener('resize',resize)
+    }
+  },[open])
+
+  const links=[['#home',copy.nav.home],['#about',copy.nav.about],['#services',copy.nav.services],['#detection',copy.nav.detection],['#dual-purpose',copy.nav.dual],['#contact',copy.nav.contact]]
+
+  return <header className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled||open?'bg-ink/95 shadow-lg backdrop-blur-xl':'bg-gradient-to-b from-black/70 to-transparent'}`}>
+    <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 lg:px-10">
+      <a href="#home" className="text-white" aria-label="AVALA Police Dogs home"><Logo compact/></a>
+      <nav className="hidden items-center gap-6 xl:flex" aria-label="Main navigation">{links.map(([href,label])=><a key={href} href={href} className="text-[.72rem] font-semibold text-white/75 transition hover:text-white">{label}</a>)}</nav>
+      <div className="flex items-center gap-4">
+        <a href="#contact" className="hidden border border-sand/60 px-5 py-2.5 text-xs font-bold text-white transition hover:bg-sand hover:text-ink md:block">{copy.nav.contact}</a>
+        <button className="relative z-10 p-2 text-white xl:hidden" onClick={()=>setOpen(value=>!value)} aria-label={open?copy.nav.close:copy.nav.open} aria-expanded={open} aria-controls="mobile-navigation">{open?<X/>:<Menu/>}</button>
+      </div>
+    </div>
+    <AnimatePresence>{open?<motion.nav id="mobile-navigation" initial={{opacity:0,y:-16}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-16}} transition={{duration:.25,ease:[.22,1,.36,1]}} className="absolute left-0 top-full z-50 flex h-[calc(100dvh-5rem)] w-full flex-col overflow-y-auto bg-ink px-6 py-8 fine-grid md:px-10 md:py-10 xl:hidden" aria-label="Mobile navigation">
+      {links.map(([href,label],index)=><motion.a initial={{opacity:0,x:-16}} animate={{opacity:1,x:0}} transition={{delay:index*.04}} key={href} href={href} onClick={()=>setOpen(false)} className="border-b border-white/10 py-4 text-2xl font-semibold text-white transition hover:border-sand/50 hover:text-sand md:py-5 md:text-3xl">{label}</motion.a>)}
+      <MapLink className="mt-auto pt-8 text-xs font-bold uppercase tracking-[.2em] text-sand transition hover:text-white">Belgrade, Serbia / Europe</MapLink>
+    </motion.nav>:null}</AnimatePresence>
+  </header>
+}
