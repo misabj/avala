@@ -19,9 +19,14 @@ export default function Hero(){
         <p className="eyebrow mb-5 !text-sand">{copy.hero.eyebrow}</p>
         <h1 className="text-[clamp(2.7rem,10.5vw,4rem)] font-bold leading-[.93] tracking-[-.06em] lg:text-[clamp(3.1rem,3vw,3.5rem)]">{copy.hero.title[0]}<br/><span className="text-sand">{copy.hero.title[1]}</span></h1>
         <p className="mt-6 max-w-[340px] text-base font-medium leading-relaxed text-white/85">{copy.hero.lead}</p>
-        <div className="mt-7 hidden flex-col gap-3 sm:flex sm:flex-row lg:items-start lg:flex-col"><ButtonLink href="#services" light>{copy.hero.primary}</ButtonLink><a href="#contact" className="inline-flex min-h-12 items-center justify-center border border-white/35 px-6 text-sm font-bold text-white transition hover:border-white hover:bg-white hover:text-ink">{copy.hero.secondary}</a></div>
+        <div className="mt-7 hidden flex-col gap-3 sm:flex sm:flex-row lg:hidden"><ButtonLink href="#services" light>{copy.hero.primary}</ButtonLink><a href="#contact" className="inline-flex min-h-12 items-center justify-center border border-white/35 px-6 text-sm font-bold text-white transition hover:border-white hover:bg-white hover:text-ink">{copy.hero.secondary}</a></div>
         <motion.a href="#brand" aria-label={copy.hero.scroll} animate={reduceMotion?undefined:{y:[0,7,0]}} transition={{duration:1.8,repeat:Infinity,ease:'easeInOut'}} className="mt-7 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/35 text-sand transition hover:border-sand hover:bg-sand hover:text-ink sm:hidden"><ArrowDown size={17}/></motion.a>
       </motion.div>
+
+      <div className="hidden lg:absolute lg:bottom-24 lg:left-1/2 lg:flex lg:-translate-x-1/2 lg:items-center lg:gap-6">
+        <div className="min-w-56 [&>a]:w-full"><ButtonLink href="#services" light>{copy.hero.primary}</ButtonLink></div>
+        <a href="#contact" className="inline-flex min-h-12 min-w-56 items-center justify-center border border-white/35 px-6 text-sm font-bold text-white transition hover:border-white hover:bg-white hover:text-ink">{copy.hero.secondary}</a>
+      </div>
 
       <div className="mt-8 flex items-end justify-between border-t border-white/15 pt-5">
         <p className="max-w-[260px] text-[.62rem] font-bold uppercase tracking-[.2em] text-white/65 sm:max-w-none sm:text-[.68rem] sm:tracking-[.22em]">{copy.slogan.join(' ')}</p>
