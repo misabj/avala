@@ -9,7 +9,7 @@ export default function Hero(){
 
   return <section id="home" className="relative overflow-hidden bg-ink text-white lg:flex lg:min-h-screen lg:items-stretch">
     <div className="relative mt-20 aspect-video w-full overflow-hidden lg:absolute lg:inset-0 lg:mt-0 lg:aspect-auto">
-      <img src="/images/slider.jpg" alt="Professional working-dog training at AVALA Police Dogs" className="h-full w-full object-cover object-center"/>
+      <img src="/images/proba%20samo.00_02_02_13.Still003.jpg" alt="German Shorthaired Pointer training against the setting sun" className="h-full w-full object-cover object-center"/>
       <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-black/35 lg:bg-[linear-gradient(90deg,rgba(8,12,10,.92)_0%,rgba(8,12,10,.75)_13%,rgba(8,12,10,.46)_25%,rgba(8,12,10,.16)_43%,rgba(8,12,10,.06)_100%)]"/>
       <div className="absolute inset-0 hidden bg-gradient-to-t from-ink/75 via-transparent to-black/20 lg:block"/>
     </div>

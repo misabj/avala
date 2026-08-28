@@ -5,7 +5,7 @@ import { ButtonLink, Feature, Heading, fade } from './ui'
 
 const serviceImages = [
   { src: '/images/proba%20samo.00_01_24_05.Still002.jpg', alt: 'Working dog completing an obstacle with its handler' },
-  { src: '/images/pas.jpg', alt: 'Handler directing a dog during professional working-dog training' },
+  { src: '/images/slider.jpg', alt: 'Two handlers training a working dog standing on its hind legs' },
 ]
 
 export function Brand() {
@@ -19,7 +19,7 @@ export function VideoSection() {
 
 export function About() {
   const { copy } = useLanguage()
-  return <section id="about" className="bg-white"><div className="section-pad grid gap-14 lg:grid-cols-2 lg:items-start"><div><Heading eye={copy.about.eye} title={copy.about.title} /><div className="mt-10 space-y-5">{copy.about.p.map(text => <motion.p {...fade} key={text} className="body-lg">{text}</motion.p>)}</div></div><motion.figure {...fade} className="overflow-hidden bg-ink lg:sticky lg:top-28"><img src="/images/pas1.jpg" alt="AVALA handler directing a working dog during training" className="aspect-video w-full object-cover object-center" loading="lazy" /></motion.figure></div></section>
+  return <section id="about" className="bg-white"><div className="section-pad grid gap-14 lg:grid-cols-2 lg:items-start"><div><Heading eye={copy.about.eye} title={copy.about.title} /><div className="mt-10 space-y-5">{copy.about.p.map(text => <motion.p {...fade} key={text} className="body-lg">{text}</motion.p>)}</div></div><motion.figure {...fade} className="overflow-hidden bg-ink lg:sticky lg:top-28"><img src="/images/gsp-working-01.jpg" alt="German Shorthaired Pointer performing detection work in a storage area" className="aspect-video w-full object-cover object-center" loading="lazy" /></motion.figure></div></section>
 }
 
 export function Services() {
@@ -34,12 +34,12 @@ export function Detection() {
 
 export function Gsp() {
   const { copy } = useLanguage()
-  return <section className="grid bg-paper lg:grid-cols-[1.1fr_.9fr]"><div className="relative aspect-video overflow-hidden lg:aspect-auto lg:min-h-[640px]"><img src="/images/proba%20samo.00_02_02_13.Still003.jpg" alt="Working dog moving with focus during detection training" className="absolute inset-0 h-full w-full object-cover object-center" loading="lazy" /><div className="absolute bottom-0 right-0 bg-sand p-5 text-ink md:p-8"><strong className="block text-4xl tracking-[-.06em] md:text-7xl">95%+</strong><span className="mt-1 block max-w-40 text-[.6rem] font-bold uppercase tracking-[.14em] md:mt-2 md:text-xs">{copy.gsp.stat}</span></div></div><div className="section-pad !mx-0 !max-w-none flex flex-col justify-center"><Heading eye={copy.gsp.eye} title={copy.gsp.title} /><div className="mt-10 space-y-5">{copy.gsp.p.map(text => <p className="body-lg" key={text}>{text}</p>)}</div></div></section>
+  return <section className="grid bg-paper lg:grid-cols-[1.1fr_.9fr]"><div className="relative aspect-video overflow-hidden lg:aspect-auto lg:min-h-[640px]"><img src="/images/pas.jpg" alt="Close-up portrait of a brown German Shorthaired Pointer" className="absolute inset-0 h-full w-full object-cover object-center" loading="lazy" /><div className="absolute bottom-0 right-0 bg-sand p-5 text-ink md:p-8"><strong className="block text-4xl tracking-[-.06em] md:text-7xl">95%+</strong><span className="mt-1 block max-w-40 text-[.6rem] font-bold uppercase tracking-[.14em] md:mt-2 md:text-xs">{copy.gsp.stat}</span></div></div><div className="section-pad !mx-0 !max-w-none flex flex-col justify-center"><Heading eye={copy.gsp.eye} title={copy.gsp.title} /><div className="mt-10 space-y-5">{copy.gsp.p.map(text => <p className="body-lg" key={text}>{text}</p>)}</div></div></section>
 }
 
 export function Dual() {
   const { copy } = useLanguage()
-  return <section id="dual-purpose" className="relative overflow-hidden bg-ink text-white"><div className="relative aspect-video overflow-hidden lg:absolute lg:inset-y-0 lg:right-0 lg:w-[52%] lg:aspect-auto"><img src="/images/proba%20samo.00_01_02_10.Still011.jpg" alt="Controlled professional working-dog training with a handler" className="h-full w-full object-cover object-center opacity-90 lg:opacity-50" loading="lazy" /><div className="absolute inset-0 bg-gradient-to-t from-ink/25 to-transparent lg:bg-gradient-to-r lg:from-ink lg:via-ink/45 lg:to-transparent" /></div><div className="section-pad relative z-10"><div className="max-w-3xl"><Heading eye={copy.dual.eye} title={copy.dual.title} light />{copy.dual.p.map(text => <p className="mt-6 max-w-2xl text-base leading-8 text-white/65" key={text}>{text}</p>)}</div><h3 className="mt-16 text-xl font-semibold">{copy.dual.sub}</h3><ul className="mt-5 grid max-w-5xl gap-x-9 md:grid-cols-2 lg:grid-cols-3">{copy.dual.items.map(item => <Feature key={item}>{item}</Feature>)}</ul><p className="mt-12 max-w-3xl border-l-2 border-sand pl-6 text-lg leading-8 text-white/75">{copy.dual.final}</p></div></section>
+  return <section id="dual-purpose" className="relative overflow-hidden bg-ink text-white"><div className="relative aspect-video overflow-hidden lg:absolute lg:inset-y-0 lg:right-0 lg:w-[52%] lg:aspect-auto"><img src="/images/about-avala.jpg" alt="Professional handler with a shepherd working dog" className="h-full w-full object-cover object-center opacity-90 lg:opacity-50" loading="lazy" /><div className="absolute inset-0 bg-gradient-to-t from-ink/25 to-transparent lg:bg-gradient-to-r lg:from-ink lg:via-ink/45 lg:to-transparent" /></div><div className="section-pad relative z-10"><div className="max-w-3xl"><Heading eye={copy.dual.eye} title={copy.dual.title} light />{copy.dual.p.map(text => <p className="mt-6 max-w-2xl text-base leading-8 text-white/65" key={text}>{text}</p>)}</div><h3 className="mt-16 text-xl font-semibold">{copy.dual.sub}</h3><ul className="mt-5 grid max-w-5xl gap-x-9 md:grid-cols-2 lg:grid-cols-3">{copy.dual.items.map(item => <Feature key={item}>{item}</Feature>)}</ul><p className="mt-12 max-w-3xl border-l-2 border-sand pl-6 text-lg leading-8 text-white/75">{copy.dual.final}</p></div></section>
 }
 
 export function Process() {
