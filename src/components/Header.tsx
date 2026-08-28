@@ -33,11 +33,11 @@ export default function Header(){
   const links=[['#home',copy.nav.home],['#about',copy.nav.about],['#services',copy.nav.services],['#detection',copy.nav.detection],['#dual-purpose',copy.nav.dual],['#contact',copy.nav.contact]]
 
   return <header className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled||open?'bg-ink/95 shadow-lg backdrop-blur-xl':'bg-gradient-to-b from-black/70 to-transparent'}`}>
-    <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 lg:px-10">
+    <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 lg:px-10 xl:h-24">
       <a href="#home" className="text-white" aria-label="AVALA Police Dogs home"><Logo compact/></a>
-      <nav className="hidden items-center gap-6 xl:flex" aria-label="Main navigation">{links.map(([href,label])=><a key={href} href={href} className="text-[.72rem] font-semibold text-white/75 transition hover:text-white">{label}</a>)}</nav>
+      <nav className="hidden items-center gap-8 xl:flex" aria-label="Main navigation">{links.map(([href,label])=><a key={href} href={href} className="text-[.82rem] font-semibold text-white/75 transition hover:text-white">{label}</a>)}</nav>
       <div className="flex items-center gap-4">
-        <a href="#contact" className="hidden border border-sand/60 px-5 py-2.5 text-xs font-bold text-white transition hover:bg-sand hover:text-ink md:block">{copy.nav.contact}</a>
+        <a href="#contact" className="hidden border border-sand/60 px-6 py-3 text-sm font-bold text-white transition hover:bg-sand hover:text-ink md:block">{copy.nav.contact}</a>
         <button className="relative z-10 p-2 text-white xl:hidden" onClick={()=>setOpen(value=>!value)} aria-label={open?copy.nav.close:copy.nav.open} aria-expanded={open} aria-controls="mobile-navigation">{open?<X/>:<Menu/>}</button>
       </div>
     </div>
