@@ -19,7 +19,7 @@ export function VideoSection() {
 
 export function About() {
   const { copy } = useLanguage()
-  return <section id="about" className="bg-white"><div className="section-pad grid gap-14 lg:grid-cols-2 lg:items-start"><div><Heading eye={copy.about.eye} title={copy.about.title} /><div className="mt-10 space-y-5">{copy.about.p.map(text => <motion.p {...fade} key={text} className="body-lg">{text}</motion.p>)}</div></div><motion.figure {...fade} className="overflow-hidden bg-ink lg:sticky lg:top-28"><img src="/images/shepherd-close-up.jpg" alt="Close-up of a German Shepherd during controlled protection training" className="aspect-video w-full object-cover object-top" loading="lazy" /></motion.figure></div></section>
+  return <section id="about" className="bg-white"><div className="section-pad grid gap-14 lg:grid-cols-2 lg:items-start"><div><Heading eye={copy.about.eye} title={copy.about.title} /><div className="mt-10 space-y-5">{copy.about.p.map(text => <motion.p {...fade} key={text} className="body-lg">{text}</motion.p>)}</div></div><motion.figure {...fade} className="overflow-hidden bg-ink lg:sticky lg:top-28"><img src="/images/slider.jpg" alt="Two handlers training a brown working dog" className="aspect-video w-full object-cover object-top" loading="lazy" /></motion.figure></div></section>
 }
 
 export function Services() {
@@ -34,7 +34,7 @@ export function Detection() {
 
 export function Gsp() {
   const { copy } = useLanguage()
-  return <section className="grid bg-paper lg:grid-cols-[2fr_1fr]"><div className="relative aspect-video overflow-hidden lg:aspect-auto lg:min-h-[640px]"><img src="/images/gsp-portrait.jpg" alt="Close-up portrait of a brown German Shorthaired Pointer" className="absolute inset-0 h-full w-full object-cover object-center" loading="lazy" /><div className="absolute bottom-0 right-0 bg-sand p-5 text-ink md:p-8"><strong className="block text-4xl tracking-[-.06em] md:text-7xl">95%+</strong><span className="mt-1 block max-w-40 text-[.6rem] font-bold uppercase tracking-[.14em] md:mt-2 md:text-xs">{copy.gsp.stat}</span></div></div><div className="flex min-w-0 flex-col justify-center px-5 py-20 md:px-10 lg:px-12 lg:py-24 xl:px-16"><Heading eye={copy.gsp.eye} title={copy.gsp.title} /><div className="mt-10 space-y-5">{copy.gsp.p.map(text => <p className="body-lg" key={text}>{text}</p>)}</div></div></section>
+  return <section className="grid bg-paper lg:grid-cols-[2fr_1fr]"><div className="relative aspect-video overflow-hidden lg:aspect-auto lg:min-h-[640px]"><img src="/images/gsp-portrait.jpg" alt="Close-up portrait of a brown German Shorthaired Pointer" className="absolute inset-0 h-full w-full object-cover object-center" loading="lazy" /><div className="absolute bottom-0 right-0 bg-sand p-5 text-ink md:p-8"><strong className="block text-4xl tracking-[-.06em] md:text-7xl">95%+</strong><span className="mt-1 block max-w-40 text-[.6rem] font-bold uppercase tracking-[.14em] md:mt-2 md:text-xs">{copy.gsp.stat.slice(0, -1)}<span className="lowercase">{copy.gsp.stat.slice(-1)}</span></span></div></div><div className="flex min-w-0 flex-col justify-center px-5 py-20 md:px-10 lg:px-12 lg:py-24 xl:px-16"><Heading eye={copy.gsp.eye} title={copy.gsp.title} /><div className="mt-10 space-y-5">{copy.gsp.p.map(text => <p className="body-lg" key={text}>{text}</p>)}</div></div></section>
 }
 
 export function Dual() {
