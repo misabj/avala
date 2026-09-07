@@ -1,6 +1,9 @@
 export default function Logo({compact=false}:{compact?:boolean}) {
-  return <span className={`brand-lockup ${compact?'brand-lockup--compact':''}`} aria-hidden="true">
-    <span className="brand-lockup__name">AVΛLΛ</span>
-    <span className="brand-lockup__descriptor">POLICE DOGS</span>
-  </span>
+  return <img
+    src="/images/avala-logo.png"
+    alt="AVALA Police Dogs"
+    width={1177}
+    height={393}
+    className={`brand-logo ${compact?'brand-logo--compact':''}`}
+  />
 }
